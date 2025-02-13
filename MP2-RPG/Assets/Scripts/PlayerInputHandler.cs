@@ -4,6 +4,21 @@ using UnityEngine.Events;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    private void Awake()
+    {
+
+    }
+
+    private void OnEnable()
+    {
+        
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
     [Serializable]
     public class InputDatum
     {
