@@ -1,29 +1,49 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    public UnityEvent OnTap;
-    //[SerializeField]
+    [Serializable]
+    public class InputDatum
+    {
+        [SerializeField]
+        private bool active;
+        public bool ActiveState
+        {
+            get { return active; }
+            set { active = value; }
+        }
 
-    //unity event based action mapping and event invoking
-    private void OnEnable()
-    {
-        Tap.Enable();
-    }
-    private void OnDisable()
-    {
-        Tap.Disable();
-    }
-    private void Awake()
-    {
-        Tap.performed += TapCtx;
+        [SerializeField]
+        private Vector2 direction;
+        public Vector2 DirectionOfTap
+        {
+            get
+            {
+                if (ActiveState)
+                {
+                    return direction;
+                }
+                return Vector2.zero;
+            }
+            set { direction = value; }
+        }
     }
 
+    public class NewInputEvent : UnityEvent<InputDatum> { }
+    public NewInputEvent inputEvent = new NewInputEvent();
 
-    private void TapCtx(InputAction.CallbackContext context)
+    Vector2 CalculateDirectionOfTapFromCenterPoint(Vector2 centerPoint, Vector2 tapLocation)
     {
-        Debug.Log("tapping");
-        OnTap.Invoke();
+        Vector2 direction = tapLocation - centerPoint;
+
+        if (direction == Vector2.zero)
+        {
+            return Vector2.zero;
+        }
+
+        return direction.normalized;
     }
+
 }
