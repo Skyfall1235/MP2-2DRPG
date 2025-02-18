@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    public InputActionAsset inputAsset;
+    //public InputAction 
     private void Awake()
     {
 
