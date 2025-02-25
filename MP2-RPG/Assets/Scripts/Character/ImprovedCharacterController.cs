@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ImprovedCharacterController : MonoBehaviour
 {
-    bool isMoving;
+    public float Speed;
+
     Vector2 DirectionOfTravel = Vector2.zero;
-    public float speed;
     Rigidbody2D rb;
     private Animator animator;
     private void Awake()
@@ -41,7 +41,7 @@ public class ImprovedCharacterController : MonoBehaviour
                 //no movement
                 break;
             case 5:
-                //throw error
+                Debug.LogError("This should not be occuring, you are sending an error");
                 break;
         }
             
@@ -49,28 +49,18 @@ public class ImprovedCharacterController : MonoBehaviour
         DirectionOfTravel.Normalize();
         animator.SetBool("IsMoving", DirectionOfTravel.magnitude > 0);
 
-        rb.velocity = speed * DirectionOfTravel;
+        rb.velocity = Speed * DirectionOfTravel;
     }
+
+    //saving it here allows me to quickly access if wihout having to switch case bloc it
+    private Dictionary<Vector2, int> directionMap = new Dictionary<Vector2, int>() { { Vector2.left, 0 }, { Vector2.right, 1 }, { Vector2.up, 2 }, { Vector2.down, 3 } };
 
     private int ConvertDirectionToInt(Vector2 originalVector)
     {
-        //this has got to be done
-        if (originalVector == Vector2.left)
+        if (directionMap.TryGetValue(originalVector, out int directionInt))
         {
-
+            return directionInt;
         }
-        else if (originalVector == Vector2.right)
-        {
-
-        }
-        else if(originalVector == Vector2.up)
-        {
-
-        }
-        else if (originalVector == Vector2.down)
-        {
-
-        }
-        return 0;
+        return 5; // fail if not found. 5 was chosen to fit prior statement. (yes i know i should default to 0)
     }
 }
