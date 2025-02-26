@@ -5,50 +5,56 @@ using UnityEngine.Events;
 
 public class Altar : MonoBehaviour
 {
-    [SerializeField] List<SpriteRenderer> runes;
-    [SerializeField] public float lerpSpeed = 3f;
-    [SerializeField] string KeyTag;
+    [SerializeField] List<SpriteRenderer> m_runes;
+    [SerializeField] float m_lerpSpeed = 3f;
+    [SerializeField] string m_keyTag;
 
     public UnityEvent<bool> StateOfActivation = new UnityEvent<bool>();
 
-    private Color curColor;
-    private Color targetColor;
+    private Color m_curColor;
+    private Color m_targetColor;
 
     private void Awake()
     {
-        targetColor = runes[0].color;
+        m_targetColor = m_runes[0].color;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (CheckIfKeyIsColliding(other))
         {
-            targetColor.a = 1.0f;
+            m_targetColor.a = 1.0f;
             StateOfActivation.Invoke(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        targetColor.a = 0.0f;
+        m_targetColor.a = 0.0f;
         StateOfActivation.Invoke(false);
     }
 
     private void Update()
     {
-        curColor = Color.Lerp(curColor, targetColor, lerpSpeed * Time.deltaTime);
+        m_curColor = Color.Lerp(m_curColor, m_targetColor, m_lerpSpeed * Time.deltaTime);
 
-        foreach (var r in runes)
+        foreach (var r in m_runes)
         {
-            r.color = curColor;
+            r.color = m_curColor;
         }
     }
 
+    /// <summary>
+    /// Checks if the colliding object has the specified key tag.
+    /// </summary>
+    /// <param name="collider">The Collider2D to check.</param>
+    /// <returns>True if the collider's GameObject has the key tag, false otherwise.</returns>
     private bool CheckIfKeyIsColliding(Collider2D collider)
     {
+        //compare object to confirm tag recognition
         if (collider != null && collider.gameObject != null)
         {
-            return collider.gameObject.tag == KeyTag;
+            return collider.gameObject.tag == m_keyTag;
         }
         return false;
     }
