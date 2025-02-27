@@ -38,7 +38,8 @@ public class ImprovedCharacterController : MonoBehaviour
                 animator.SetInteger("Direction", 0);
                 break;
             case 4:
-                //no movement
+                DirectionOfTravel.x = 0;
+                DirectionOfTravel.y = 0;
                 break;
             case 5:
                 Debug.LogError("This should not be occuring, you are sending an error");
@@ -53,7 +54,7 @@ public class ImprovedCharacterController : MonoBehaviour
     }
 
     //saving it here allows me to quickly access if wihout having to switch case bloc it
-    private Dictionary<Vector2, int> directionMap = new Dictionary<Vector2, int>() { { Vector2.left, 0 }, { Vector2.right, 1 }, { Vector2.up, 2 }, { Vector2.down, 3 } };
+    private Dictionary<Vector2, int> directionMap = new Dictionary<Vector2, int>() { { Vector2.left, 0 }, { Vector2.right, 1 }, { Vector2.up, 2 }, { Vector2.down, 3 }, { Vector2.zero, 4 } };
 
     private int ConvertDirectionToInt(Vector2 originalVector)
     {
@@ -62,5 +63,23 @@ public class ImprovedCharacterController : MonoBehaviour
             return directionInt;
         }
         return 5; // fail if not found. 5 was chosen to fit prior statement. (yes i know i should default to 0)
+    }
+
+    //honest to god i dont have time to refactor this, this is a wrapper for the IControl node calls
+    public void MoveUp()
+    {
+        MoveCharacter(Vector2.up);
+    }
+    public void MoveDown()
+    {
+        MoveCharacter(Vector2.down);
+    }
+    public void MoveLeft()
+    {
+        MoveCharacter(Vector2.left);
+    }
+    public void MoveRight()
+    {
+        MoveCharacter(Vector2.right);
     }
 }

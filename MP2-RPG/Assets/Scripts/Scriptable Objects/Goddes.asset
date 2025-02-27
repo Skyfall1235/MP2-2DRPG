@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c79683136db5ec240a9a9d6a1fd9591a, type: 3}
-  m_Name: Sign
+  m_Name: Goddes
   m_EditorClassIdentifier: 
-  m_characterName: Sign
-  m_boxSprite: {fileID: 21300086, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
-  m_font: {fileID: 12800000, guid: ddea2e075331272458b6801e06c305b2, type: 3}
+  m_characterName: Goddess
+  m_boxSprite: {fileID: 21300114, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
+  m_font: {fileID: 12800000, guid: 57b76e1884a92a64686438742376a11f, type: 3}

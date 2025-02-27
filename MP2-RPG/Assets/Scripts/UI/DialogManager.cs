@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //search the area around thep layer, if he hits an object that is a char info, put it on screen and wait
+    //2 options for the player, using standard buttons see through (ttogle on and off when chatting, maybe use a nuified script to control buttons and reuse movement?) 
+    //drive dialog through the buttons
 }
