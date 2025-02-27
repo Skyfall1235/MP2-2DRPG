@@ -1,5 +1,3 @@
-using System;
-using System.Buffers;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -8,11 +6,11 @@ public class ButtonControlSchema : MonoBehaviour, IPointerUpHandler, IPointerDow
 {
     public void OnPointerUp(PointerEventData eventData)
     {
-        ModeInUse.SetIsHeldDown(false);
+        ModeInUse?.SetIsHeldDown(false);
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        ModeInUse.SetIsHeldDown(true);
+        ModeInUse?.SetIsHeldDown(true);
     }
 
     //list all the buttons, and different events that we plan to listen to
@@ -30,6 +28,7 @@ public class ButtonControlSchema : MonoBehaviour, IPointerUpHandler, IPointerDow
             ModeInUse?.DelinkToActions();
         }
         ModeInUse = (ControlMode)ControlModes[mode];
+        //assuming we made a link, this doesnt need to be null checked
         ModeInUse.LinkToActions();
         ModeInUse.GO_Owner = transform.gameObject;
     }
