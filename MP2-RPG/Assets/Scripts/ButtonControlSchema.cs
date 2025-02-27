@@ -24,8 +24,11 @@ public class ButtonControlSchema : MonoBehaviour, IPointerUpHandler, IPointerDow
     public void SwitchControlMode(int mode)
     {
         //reset the button config requiring a release, and then switch over
-        ModeInUse?.SetIsHeldDown(false);
-        ModeInUse?.DelinkToActions();
+        if(ModeInUse != null)
+        {
+            ModeInUse?.SetIsHeldDown(false);
+            ModeInUse?.DelinkToActions();
+        }
         ModeInUse = (ControlMode)ControlModes[mode];
         ModeInUse.LinkToActions();
         ModeInUse.GO_Owner = transform.gameObject;
