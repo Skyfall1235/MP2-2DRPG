@@ -31,9 +31,9 @@ public struct DialogOption
     [SerializeField] private TextBox m_nextOption;
     [SerializeField] private UnityEvent m_activateNextTextBox;
 
-    public string ResponseText { get => m_responseText; }
-    public TextBox NextOption { get => m_nextOption; }
-    public UnityEvent ActivateNextTextBox { get => m_activateNextTextBox; }
+    public readonly string ResponseText { get => m_responseText; }
+    public readonly TextBox NextOption { get => m_nextOption; }
+    public readonly UnityEvent ActivateNextTextBox { get => m_activateNextTextBox; }
 
 
     /// <summary>
