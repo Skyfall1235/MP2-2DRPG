@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class CharacterInfo : MonoBehaviour
 {
-    private DialogCharacter m_dialogCharacter;
+    [SerializeField] private TextBox m_textBox;
 
-    public DialogCharacter DialogCharacter { get => m_dialogCharacter; set => m_dialogCharacter = value; }
+    public TextBox TextBox { get => m_textBox; }
 }

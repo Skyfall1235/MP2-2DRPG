@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8680e38ce1ed25428e3b5bcf5edc4b8, type: 3}
+  m_Name: Dialog1_a_R
+  m_EditorClassIdentifier: 
+  m_characterInfo: {fileID: 0}
+  m_displayDuration: 0
+  m_dialogueText: ' "The balance of this realm hangs in the balance. I implore you."'
+  options:
+  - m_responseText: Refusal
+    m_nextOption: {fileID: 11400000, guid: aca3bc19f48398840b84a6e2c8fd0bf4, type: 2}
+    m_activateNextTextBox:
+      m_PersistentCalls:
+        m_Calls: []
+  - m_responseText: Acceptance
+    m_nextOption: {fileID: 11400000, guid: ad0912c9d969c1b48b11a09dfcf4cdc0, type: 2}
+    m_activateNextTextBox:
+      m_PersistentCalls:
+        m_Calls: []

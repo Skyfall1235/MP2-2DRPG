@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8680e38ce1ed25428e3b5bcf5edc4b8, type: 3}
+  m_Name: GoddessBlocker
+  m_EditorClassIdentifier: 
+  m_characterInfo: {fileID: 0}
+  m_displayDuration: 0
+  m_dialogueText: '"Her radiance waits, beyond these stones. Prove your devotion,
+    earth-born bones."'
+  options: []

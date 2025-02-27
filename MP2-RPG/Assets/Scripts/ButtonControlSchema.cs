@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -18,6 +19,14 @@ public class ButtonControlSchema : MonoBehaviour, IPointerUpHandler, IPointerDow
     public ControlMode ModeInUse;
 
     public IControlMode[] ControlModes = new IControlMode[1]; // 0 is movement, 1 is interaction
+    private void Awake()
+    {
+        ControlModes[0] = new MovementControl(this.gameObject, null, null, null, null, new UnityEvent());
+        ControlModes[1] = new InteractionControl(this.gameObject, null, null, null, null, new UnityEvent());
+        ModeInUse = (ControlMode)ControlModes[0];
+        //still need to link the actions somehow
+
+    }
     //public method to toggle modes, and swap them out as needed
     public void SwitchControlMode(int mode)
     {
@@ -35,6 +44,7 @@ public class ButtonControlSchema : MonoBehaviour, IPointerUpHandler, IPointerDow
 }
 
 //have 2 modes to toggle between for input, movement and interaction.
+[Serializable]
 public class ControlMode : IControlMode
 {
     public GameObject GO_Owner;
@@ -138,6 +148,7 @@ public class ControlMode : IControlMode
         OnButtonReleased = onButtonReleased;
     }
 }
+[Serializable]
 public class MovementControl : ControlMode
 {
     ImprovedCharacterController charController;
@@ -167,6 +178,8 @@ public class MovementControl : ControlMode
         OnRight = charController.MoveRight;
     }
 }
+
+[Serializable]
 public class InteractionControl : ControlMode
 {
     //the dialog system will interface here through the player as well

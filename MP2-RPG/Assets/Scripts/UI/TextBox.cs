@@ -29,7 +29,6 @@ public class TextBox : ScriptableObject
     /// <param name="displayDuration">The duration, in seconds, that the text box should be displayed</param>
     /// <param name="dialogueText">The text content to display within the text box</param>
     /// <param name="options">An array of DialogOptions representing possible choices for the player</param>
-    /// <param name="font">A default font is used, but can be populated with a custom font</param>
     public TextBox(float displayDuration, string dialogueText, DialogOption[] options)
     {
         m_displayDuration = displayDuration;
@@ -37,6 +36,10 @@ public class TextBox : ScriptableObject
         Options = options;      
     }
 
+    /// <summary>
+    /// Takes a given prefab and populates its information with the basic amount of info for a  dialog
+    /// </summary>
+    /// <param name="textObjectRoot">the prefab to populate</param>
     public void PopulateTextBoxPrefab(GameObject textObjectRoot)
     {
         //this is just to set up the dialog box, not to pup
