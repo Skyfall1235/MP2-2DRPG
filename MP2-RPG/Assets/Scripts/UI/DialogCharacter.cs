@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,9 +8,9 @@ public class DialogCharacter : ScriptableObject
 {
     [SerializeField] private string m_characterName;
     [SerializeField] private Sprite m_boxSprite; // Sprite for the background of the text box
-    [SerializeField] private Font m_font; // is optional, but a font change per character?
+    [SerializeField] private TMP_FontAsset m_font; // is optional, but a font change per character?
 
-    public DialogCharacter(string characterName, Sprite boxSprite, Font font)
+    public DialogCharacter(string characterName, Sprite boxSprite, TMP_FontAsset font)
     {
         m_characterName = characterName;
         m_boxSprite = boxSprite;
@@ -20,7 +21,7 @@ public class DialogCharacter : ScriptableObject
     }
 
     public Sprite BoxSprite { get => m_boxSprite; }
-    public Font Font { get => m_font; }
+    public TMP_FontAsset Font { get => m_font; }
     public string CharacterName { get => m_characterName; }
 }
 

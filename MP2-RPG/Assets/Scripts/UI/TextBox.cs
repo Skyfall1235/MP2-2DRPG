@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -44,7 +45,7 @@ public class TextBox : ScriptableObject
     {
         //this is just to set up the dialog box, not to pup
         Image characterSprite = textObjectRoot.GetComponentInChildren<Image>();
-        Text DialogText = textObjectRoot.GetComponentInChildren<Text>();
+        TMP_Text DialogText = textObjectRoot.GetComponentInChildren<TMP_Text>();
         characterSprite.sprite = m_characterInfo.BoxSprite;
         DialogText.font = m_characterInfo.Font;
         DialogText.text = m_dialogueText;   

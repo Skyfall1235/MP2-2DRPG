@@ -1,14 +1,11 @@
 ﻿using UnityEngine.Events;
-public interface IControlMode
-{
-    // Direction Actions
-    protected event UnityAction OnUp;
-    protected event UnityAction OnDown;
-    protected event UnityAction OnLeft;
-    protected event UnityAction OnRight;
+using UnityEngine.UI;
 
-    // Method to set the IsHeldDown state
-    void SetIsHeldDown(bool value);
-    void LinkToActions();
-    void DelinkToActions();
-}
+//NOT IN USE ATM
+//public interface IControlMode
+//{
+//    // Method to set the IsHeldDown state
+//    void SetIsHeldDown(bool value);
+//    void LinkToActions(Button up, Button Down, Button Left, Button right);
+//    void DelinkToActions(Button up, Button Down, Button Left, Button right);
+//}

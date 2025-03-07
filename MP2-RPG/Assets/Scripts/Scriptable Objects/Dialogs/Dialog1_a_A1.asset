@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8680e38ce1ed25428e3b5bcf5edc4b8, type: 3}
   m_Name: Dialog1_a_A1
   m_EditorClassIdentifier: 
-  m_characterInfo: {fileID: 0}
+  m_characterInfo: {fileID: 11400000, guid: 2170ead98db9a33458d2bab08cbd3d99, type: 2}
   m_displayDuration: 0
   m_dialogueText: ' "Then go. The Labyrinth is treacherous, but I sense your resilience.
     Seek the light that pulses within the heart of the maze. It will guide you to

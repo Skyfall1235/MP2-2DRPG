@@ -23,17 +23,21 @@ public class ImprovedCharacterController : MonoBehaviour
         {
             case 0:
                 DirectionOfTravel.x = -1;
+                DirectionOfTravel.y = 0;
                 animator.SetInteger("Direction", 3);
                 break;
             case 1:
                 DirectionOfTravel.x = 1;
+                DirectionOfTravel.y = 0;
                 animator.SetInteger("Direction", 2);
                 break;
             case 2:
+                DirectionOfTravel.x = 0;
                 DirectionOfTravel.y = 1;
                 animator.SetInteger("Direction", 1);
                 break;
             case 3:
+                DirectionOfTravel.x = 0;
                 DirectionOfTravel.y = -1;
                 animator.SetInteger("Direction", 0);
                 break;
@@ -81,5 +85,9 @@ public class ImprovedCharacterController : MonoBehaviour
     public void MoveRight()
     {
         MoveCharacter(Vector2.right);
+    }
+    public void StopMovement()
+    {
+        MoveCharacter(Vector2.zero);
     }
 }

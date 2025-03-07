@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Altar : RuneColorChanger
 {
     [SerializeField] string m_keyTag;
+    [SerializeField] UnityEvent AllowDialog = new UnityEvent();
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -30,6 +31,7 @@ public class Altar : RuneColorChanger
         //compare object to confirm tag recognition
         if (collider != null && collider.gameObject != null)
         {
+            AllowDialog.Invoke();
             return collider.gameObject.tag == m_keyTag;
         }
         return false;
